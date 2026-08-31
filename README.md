@@ -55,13 +55,17 @@ git clone https://github.com/kwsDeveloper/kws-portal.git
 각 프로젝트 폴더 안에서 실행해야 합니다. (상위 폴더에서 실행하면 오류 발생)
 
 ```bash
-cd 내폴더경로\kws-project
+cd /d 내폴더경로\kws-project
 git pull
 ```
 ```bash
-cd 내폴더경로\kws-portal
+cd /d 내폴더경로\kws-portal
 git pull
 ```
+
+> **`/d` 옵션 필수** — 드라이브가 다를 때(`C:` → `D:` 등) `cd`만 쓰면 이동이 안 됩니다. 항상 `cd /d`를 사용하세요.
+
+또는 `kws-project` 폴더 안의 **업데이트.bat를 더블클릭**하면 모든 프로젝트를 한 번에 업데이트할 수 있습니다.
 
 | 할 일 | 방법 |
 |-------|------|
