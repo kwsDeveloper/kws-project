@@ -51,7 +51,12 @@ git clone https://github.com/kwsDeveloper/kws-portal.git
 
 ### 3단계 — 작업할 때마다 (매번)
 
-`kws-project` 폴더 안의 **업데이트.bat를 더블클릭**하면 모든 프로젝트를 한 번에 업데이트할 수 있습니다.
+| 구분 | 할 일 |
+|------|-------|
+| **Claude Code로 작업한 PC** | 자동으로 GitHub에 push 완료 — 별도 작업 없음 |
+| **나머지 PC** | `kws-project` 폴더 안의 **업데이트.bat 더블클릭** → 최신 내용 수신 |
+
+> 예) PC 2에서 작업했다면 → PC 1, 3에서 업데이트.bat 실행
 
 | 할 일 | 방법 |
 |-------|------|
