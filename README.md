@@ -25,10 +25,15 @@ kwsDeveloper의 모든 프로젝트에서 공통으로 참고하는 가이드·�
 
 ### PC 2, 3 — 각 저장소 최초 1회
 
-| 순서 | 할 일 | 어디서 | 명령 |
-|------|-------|--------|------|
-| 1 | 문서 허브 받기 | Windows 터미널(cmd) `C:\ClaudeProject` 폴더에서 | `git clone https://github.com/kwsDeveloper/kws-project.git` |
-| 2 | 포털 프로젝트 받기 | Windows 터미널(cmd) `C:\ClaudeProject` 폴더에서 | `git clone https://github.com/kwsDeveloper/kws-portal.git` |
+> **폴더 경로는 PC마다 달라도 됩니다.** 드라이브명, 폴더명 무관하게 원하는 위치에 클론하면 됩니다.  
+> 예) PC 1: `C:\ClaudeProjects\kws-portal` / PC 2: `D:\Work\kws-portal` / PC 3: `C:\Projects\kws-portal`
+
+원하는 폴더로 이동 후 실행:
+
+```bash
+git clone https://github.com/kwsDeveloper/kws-project.git
+git clone https://github.com/kwsDeveloper/kws-portal.git
+```
 
 ### PC 1 — 새 프로젝트 시작할 때 한 번
 
