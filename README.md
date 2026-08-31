@@ -53,10 +53,21 @@ git clone https://github.com/kwsDeveloper/kws-portal.git
 
 ### PC 2, 3
 
-| 할 일 | 어디서 | 명령 |
-|-------|--------|------|
-| 최신 내용 받기 | Windows 터미널(cmd) 해당 프로젝트 폴더에서 | `git pull` |
-| PDF 필요할 때 | 탐색기에서 HTML 파일 더블클릭 | `Ctrl+P` → PDF로 저장 |
+최신 내용을 받을 때는 **각 프로젝트 폴더 안에서** `git pull`을 실행합니다.  
+(저장소가 있는 폴더 자체가 아니라 그 안의 각 프로젝트 폴더에서 실행해야 합니다.)
+
+```bash
+cd 내폴더경로\kws-project
+git pull
+```
+```bash
+cd 내폴더경로\kws-portal
+git pull
+```
+
+| 할 일 | 명령 |
+|-------|------|
+| PDF 필요할 때 | 탐색기에서 HTML 파일 더블클릭 → `Ctrl+P` → PDF로 저장 |
 
 ---
 
