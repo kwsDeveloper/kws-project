@@ -24,7 +24,13 @@ kwsDeveloper의 모든 프로젝트에서 공통으로 참고하는 가이드·�
 | 1 | GitHub CLI 설치 | Windows 터미널(cmd) | `winget install --id GitHub.cli` |
 | 2 | GitHub 로그인 | Windows 터미널(cmd) | `gh auth login` |
 | 3 | 기본 브랜치 설정 | Windows 터미널(cmd) | `git config --global init.defaultBranch main` |
-| 4 | 전역 CLAUDE.md 생성 | Claude Code 채팅 | "전역 CLAUDE.md 만들어주세요" |
+| 4 | 전역 CLAUDE.md 생성 | Claude Code 채팅 | 아래 요청 문구 복사해서 입력 |
+
+**4번 요청 문구 (복사해서 그대로 입력):**
+> "전역 CLAUDE.md 만들어주세요. 아래 규칙을 포함해주세요:
+> - 문서 파일명 형식: 제목_문서종류_YYYYMMDD (예: KWS업무포털_인수인계문서_20260830)
+> - 문서는 HTML로만 저장, 생성 후 자동으로 git push까지 완료
+> - 새 프로젝트 시작 시 GitHub 저장소 생성부터 자동 진행"
 
 ---
 
