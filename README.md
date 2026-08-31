@@ -13,9 +13,11 @@ kwsDeveloper의 모든 프로젝트에서 공통으로 참고하는 가이드·�
 
 ---
 
-## 한 번만 하면 되는 것
+## PC 설정 가이드 (PC 4 신규 추가 기준)
 
-### PC 1, 2, 3 — 각각 한 번씩
+### 1단계 — PC를 처음 쓸 때 (최초 1회)
+
+어떤 PC든 처음 Claude Code와 GitHub를 연동할 때 한 번만 실행합니다.
 
 | 순서 | 할 일 | 어디서 | 명령 |
 |------|-------|--------|------|
@@ -23,40 +25,36 @@ kwsDeveloper의 모든 프로젝트에서 공통으로 참고하는 가이드·�
 | 2 | GitHub 로그인 | Windows 터미널(cmd) | `gh auth login` |
 | 3 | 전역 CLAUDE.md 생성 | Claude Code 채팅 | "전역 CLAUDE.md 만들어주세요" |
 
-### PC 2, 3 — 각 저장소 최초 1회
+---
 
-> **폴더 경로는 PC마다 달라도 됩니다.** 드라이브명, 폴더명 무관하게 원하는 위치에 클론하면 됩니다.  
-> 예) PC 1: `C:\ClaudeProjects\kws-portal` / PC 2: `D:\Work\kws-portal` / PC 3: `C:\Projects\kws-portal`
+### 2단계 — 프로젝트를 처음 받을 때 (프로젝트당 최초 1회)
 
-원하는 폴더로 이동 후 실행:
+새 프로젝트가 생기거나, 기존 프로젝트를 이 PC에서 처음 사용할 때 실행합니다.  
+원하는 위치로 이동 후 실행하면 **폴더가 자동으로 생성**됩니다.
+
+> 폴더 경로는 PC마다 달라도 됩니다. 드라이브명, 폴더명 무관합니다.  
+> 예) `C:\ClaudeProjects\kws-portal` / `D:\Work\kws-portal` / `C:\Projects\kws-portal`
 
 ```bash
 git clone https://github.com/kwsDeveloper/kws-project.git
 git clone https://github.com/kwsDeveloper/kws-portal.git
 ```
 
-> `git clone`을 실행하면 `kws-project`, `kws-portal` **폴더가 자동으로 생성**됩니다. 미리 폴더를 만들 필요 없습니다.
-
-### PC 1 — 새 프로젝트 시작할 때 한 번
-
-| 할 일 | 어디서 | 명령 |
-|-------|--------|------|
-| 프로젝트 생성·GitHub 연동 | Claude Code 채팅 | "새 프로젝트 시작해주세요" |
+> 이후 새 프로젝트가 추가될 때마다 해당 저장소 주소로 동일하게 실행합니다.
 
 ---
 
-## 반복해서 해야 하는 것
+### 3단계 — 작업할 때마다 (매번)
 
-### PC 1
+**주 작업 PC (Claude Code 설치 PC)**
 
-| 할 일 | 어디서 | 명령 |
+| 할 일 | 어디서 | 방법 |
 |-------|--------|------|
-| 작업 요청 | Claude Code 채팅 | 아래 요청 예시 참고 (자동 push까지 완료) |
+| 포털 수정·문서 생성 등 | Claude Code 채팅 | 아래 요청 예시 참고 (자동 push까지 완료) |
 
-### PC 2, 3
+**나머지 PC (최신 내용 받을 때)**
 
-최신 내용을 받을 때는 **각 프로젝트 폴더 안에서** `git pull`을 실행합니다.  
-(저장소가 있는 폴더 자체가 아니라 그 안의 각 프로젝트 폴더에서 실행해야 합니다.)
+각 프로젝트 폴더 안에서 실행해야 합니다. (상위 폴더에서 실행하면 오류 발생)
 
 ```bash
 cd 내폴더경로\kws-project
@@ -67,13 +65,13 @@ cd 내폴더경로\kws-portal
 git pull
 ```
 
-| 할 일 | 명령 |
+| 할 일 | 방법 |
 |-------|------|
 | PDF 필요할 때 | 탐색기에서 HTML 파일 더블클릭 → `Ctrl+P` → PDF로 저장 |
 
 ---
 
-## Claude Code 요청 예시 (PC 1)
+## Claude Code 요청 예시
 
 ### 포털 관리
 | 요청 예시 |
