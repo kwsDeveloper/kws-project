@@ -35,6 +35,8 @@ git clone https://github.com/kwsDeveloper/kws-project.git
 git clone https://github.com/kwsDeveloper/kws-portal.git
 ```
 
+> `git clone`을 실행하면 `kws-project`, `kws-portal` **폴더가 자동으로 생성**됩니다. 미리 폴더를 만들 필요 없습니다.
+
 ### PC 1 — 새 프로젝트 시작할 때 한 번
 
 | 할 일 | 어디서 | 명령 |
