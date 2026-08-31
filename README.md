@@ -40,7 +40,11 @@ git clone https://github.com/kwsDeveloper/kws-project.git
 git clone https://github.com/kwsDeveloper/kws-portal.git
 ```
 
-> 이후 새 프로젝트가 추가될 때마다 해당 저장소 주소로 동일하게 실행합니다.
+> 이후 새 프로젝트가 추가될 때마다 해당 저장소 주소로 동일하게 실행합니다.  
+> 예) `kws-overtime` 프로젝트가 추가되면:
+> ```bash
+> git clone https://github.com/kwsDeveloper/kws-overtime.git
+> ```
 
 ---
 
