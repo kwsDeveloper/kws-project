@@ -55,7 +55,7 @@ git clone https://github.com/kwsDeveloper/kws-portal.git
 
 ---
 
-### 3단계 — 작업할 때마다 (매번)
+### 3단계 — PC에서 최신 내용을 받을 때마다 (매번)
 
 | 구분 | 할 일 |
 |------|-------|
