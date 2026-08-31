@@ -1,7 +1,15 @@
-# KWS 업무 포털 (kws-project)
+# KWS Project — 공통 문서 허브
 
-대한사회복지회 사내 업무 링크 포털  
-→ **포털 주소**: https://kwsdeveloper.github.io/kws-project
+kwsDeveloper의 모든 프로젝트에서 공통으로 참고하는 가이드·문서 저장소입니다.
+
+---
+
+## 저장소 구성
+
+| 저장소 | 용도 | 주소 |
+|--------|------|------|
+| **kws-project** (여기) | 공통 문서·가이드 허브 | github.com/kwsDeveloper/kws-project |
+| **kws-portal** | KWS 업무 포털 코드 | github.com/kwsDeveloper/kws-portal |
 
 ---
 
@@ -15,11 +23,12 @@
 | 2 | GitHub 로그인 | Windows 터미널(cmd) | `gh auth login` |
 | 3 | 전역 CLAUDE.md 생성 | Claude Code 채팅 | "전역 CLAUDE.md 만들어주세요" |
 
-### PC 2, 3 — 프로젝트 생길 때마다 한 번
+### PC 2, 3 — 각 저장소 최초 1회
 
 | 순서 | 할 일 | 어디서 | 명령 |
 |------|-------|--------|------|
-| 1 | 프로젝트 받기 | Windows 터미널(cmd) `C:\ClaudeProject` 폴더에서 | `git clone https://github.com/kwsDeveloper/kws-project.git` |
+| 1 | 문서 허브 받기 | Windows 터미널(cmd) `C:\ClaudeProject` 폴더에서 | `git clone https://github.com/kwsDeveloper/kws-project.git` |
+| 2 | 포털 프로젝트 받기 | Windows 터미널(cmd) `C:\ClaudeProject` 폴더에서 | `git clone https://github.com/kwsDeveloper/kws-portal.git` |
 
 ### PC 1 — 새 프로젝트 시작할 때 한 번
 
@@ -77,26 +86,13 @@
 
 ---
 
-## 관리자 패널
-
-포털 우상단 **자물쇠 아이콘** 클릭 → 비밀번호 입력
-
-| 기능 | 위치 |
-|------|------|
-| 링크 추가·수정·삭제 | 링크 관리 탭 |
-| 로고·배경 이미지 변경 | 설정 탭 |
-| 폰트·글자 크기 변경 | 설정 탭 |
-| 조직명·비밀번호 변경 | 설정 탭 |
-
----
-
-## 비밀번호 분실 시
+## 비밀번호 분실 시 (포털)
 
 Supabase 대시보드 → Table Editor → `config` 테이블 → `adminPw` 행 value 직접 수정  
-→ 대시보드 주소: https://supabase.com/dashboard/project/czrdvknzbkmryvnjyiki
+→ https://supabase.com/dashboard/project/czrdvknzbkmryvnjyiki
 
 ---
 
 ## 문의
 
-GitHub 저장소: https://github.com/kwsDeveloper/kws-project
+GitHub: https://github.com/kwsDeveloper
