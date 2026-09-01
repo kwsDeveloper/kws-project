@@ -55,9 +55,9 @@ git clone https://github.com/kwsDeveloper/kws-portal.git
 
 > ⚠️ **주의 — git clone은 GitHub에 이미 있는 저장소만 가져올 수 있습니다.**  
 > GitHub에 저장소가 없는 상태에서 clone하면 "Repository not found" 오류가 납니다.  
-> 새 프로젝트는 반드시 **PC 1에서 Claude Code로 먼저 생성**한 뒤, PC 2·3에서 clone하세요.  
-> PC 1: "새 프로젝트 만들어주세요" → 자동으로 GitHub 저장소 생성 + push까지 완료  
-> PC 2·3: 그 다음에 아래와 같이 실행
+> 새 프로젝트는 **1단계 설정이 완료된 PC(Claude Code + gh 로그인)**에서 먼저 생성한 뒤, 나머지 PC에서 clone하세요.  
+> 생성하는 PC: "새 프로젝트 만들어주세요" → 자동으로 GitHub 저장소 생성 + push까지 완료  
+> 나머지 PC: 그 다음에 아래와 같이 실행
 > ```bash
 > git clone https://github.com/kwsDeveloper/kws-overtime.git
 > ```
