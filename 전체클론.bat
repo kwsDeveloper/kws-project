@@ -22,7 +22,7 @@ for /f "tokens=*" %%r in ('gh repo list kwsDeveloper --json name --jq ".[].name"
 
 echo.
 echo ============================
-echo   완료! 총 !count!개 프로젝트 클론
+echo   완료 - 총 !count!개 프로젝트 클론
 echo ============================
 echo.
 pause
