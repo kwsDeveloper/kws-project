@@ -65,8 +65,12 @@ kwsDeveloper의 모든 프로젝트에서 공통으로 참고하는 가이드·�
 
 **자동 (권장) — PC당 최초 1회 설정**
 
-`kws-project` 폴더 안의 **시작프로그램등록.bat 더블클릭**  
-→ PC를 켤 때마다 백그라운드에서 자동으로 최신 내용 수신 (창 뜨지 않음)
+| 순서 | 할 일 |
+|------|-------|
+| 1 | `kws-project` 폴더 안의 **업데이트.bat 더블클릭** → 최신 파일 수신 |
+| 2 | `kws-project` 폴더 안의 **시작프로그램등록.bat 더블클릭** → 자동 업데이트 등록 완료 |
+
+→ 이후 PC를 켤 때마다 백그라운드에서 자동으로 최신 내용 수신 (창 뜨지 않음)
 
 > 해제하려면 `C:\Users\사용자명\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup` 폴더에서 `KWS_자동업데이트.lnk` 삭제
 
