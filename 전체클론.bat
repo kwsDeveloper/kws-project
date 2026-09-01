@@ -2,6 +2,8 @@
 setlocal enabledelayedexpansion
 cd /d "%~dp0.."
 
+:refresh
+cls
 echo.
 echo ==============================
 echo   Fetching project list...
@@ -29,10 +31,14 @@ echo.
 echo ==============================
 echo   all   = clone all [new]
 echo   1 2 3 = clone selected
+echo   q     = quit
 echo ==============================
+set "choice="
 set /p choice=Choice:
 echo.
 
+if not defined choice goto :refresh
+if /i "%choice%"=="q" exit /b
 if /i "%choice%"=="all" goto :clone_all
 
 rem --- selection (space-separated numbers) ---
@@ -51,8 +57,8 @@ for %%t in (%choice%) do (
     )
 )
 echo.
-echo Done. !cloned! project(s) cloned.
-goto :end
+echo !cloned! project(s) cloned.
+goto :next
 
 :clone_all
 set cloned=0
@@ -64,8 +70,10 @@ for /l %%i in (1,1,%total%) do (
     )
 )
 echo.
-echo Done. !cloned! project(s) cloned.
+echo !cloned! project(s) cloned.
 
-:end
+:next
 echo.
-pause
+echo Press any key to continue, or close this window to exit.
+pause > nul
+goto :refresh
