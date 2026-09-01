@@ -27,32 +27,31 @@ if %total%==0 (
 
 echo.
 echo ==============================
-echo   all = clone all [new]
-echo   num = clone by number
+echo   all   = clone all [new]
+echo   1 2 3 = clone selected
 echo ==============================
 set /p choice=Choice:
 echo.
 
 if /i "%choice%"=="all" goto :clone_all
 
-rem --- single selection ---
-set found=0
-for /l %%i in (1,1,%total%) do (
-    if "%%i"=="%choice%" set found=1
+rem --- selection (space-separated numbers) ---
+set cloned=0
+for %%t in (%choice%) do (
+    set "name=!repo_%%t!"
+    if "!name!"=="" (
+        echo [%%t] Invalid - skipped.
+    ) else if exist "!name!" (
+        echo [!name!] Already exists - skipped.
+    ) else (
+        echo [!name!] Cloning...
+        git clone https://github.com/kwsDeveloper/!name!.git
+        set /a cloned+=1
+        echo Done.
+    )
 )
-if "%found%"=="0" (
-    echo Invalid selection.
-    goto :end
-)
-
-set "name=!repo_%choice%!"
-if exist "!name!" (
-    echo [!name!] Already exists - skipped.
-) else (
-    echo [!name!] Cloning...
-    git clone https://github.com/kwsDeveloper/!name!.git
-    echo Done.
-)
+echo.
+echo Done. !cloned! project(s) cloned.
 goto :end
 
 :clone_all
