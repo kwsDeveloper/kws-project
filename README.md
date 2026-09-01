@@ -77,7 +77,8 @@ git clone https://github.com/kwsDeveloper/kws-overtime.git
 | **Claude Code로 작업한 PC** | 자동으로 GitHub에 push 완료 — 별도 작업 없음 |
 | **나머지 PC** | `kws-project` 폴더 안의 **업데이트.bat 더블클릭** → 최신 내용 수신 |
 
-> 예) PC 2에서 작업했다면 → PC 1, 3에서 업데이트.bat 실행
+> 예) PC 2에서 작업했다면 → PC 1, 3에서 업데이트.bat 실행  
+> 업데이트.bat 실행 시 코드 변경뿐 아니라 **새로 추가된 파일**(전체클론.bat 등)도 함께 수신됩니다.
 
 | 할 일 | 방법 |
 |-------|------|
