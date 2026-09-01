@@ -1,28 +1,66 @@
 @echo off
-chcp 65001 > nul
 setlocal enabledelayedexpansion
 cd /d "%~dp0.."
 
 echo.
-echo ============================
-echo   전체 프로젝트 클론 시작
-echo ============================
+echo ==============================
+echo   Fetching project list...
+echo ==============================
+echo.
 
-set count=0
+set total=0
 for /f "tokens=*" %%r in ('gh repo list kwsDeveloper --json name --jq ".[].name" --limit 100') do (
-    if not exist "%%r" (
-        set /a count+=1
-        echo.
-        echo [%%r] 클론 중...
-        git clone https://github.com/kwsDeveloper/%%r.git
+    set /a total+=1
+    set "repo_!total!=%%r"
+    if exist "%%r" (
+        echo   !total!. %%r  [exists]
     ) else (
-        echo [%%r] 이미 존재 - 건너뜀
+        echo   !total!. %%r  [new]
     )
 )
 
+if !total!==0 (
+    echo No projects found.
+    pause
+    exit /b
+)
+
 echo.
-echo ============================
-echo   완료 - 총 !count!개 프로젝트 클론
-echo ============================
+echo ==============================
+echo   all  = clone all [new]
+echo   num  = clone selected item
+echo ==============================
+set /p choice=Choice:
+
+echo.
+
+if /i "!choice!"=="all" (
+    set cloned=0
+    for /l %%i in (1,1,!total!) do (
+        if not exist "!repo_%%i!" (
+            echo [!repo_%%i!] Cloning...
+            git clone https://github.com/kwsDeveloper/!repo_%%i!.git
+            set /a cloned+=1
+        )
+    )
+    echo.
+    echo Done. !cloned! project(s) cloned.
+) else (
+    set valid=0
+    for /l %%i in (1,1,!total!) do (
+        if "%%i"=="!choice!" (
+            set valid=1
+            if exist "!repo_%%i!" (
+                echo [!repo_%%i!] Already exists - skipped.
+            ) else (
+                echo [!repo_%%i!] Cloning...
+                git clone https://github.com/kwsDeveloper/!repo_%%i!.git
+                echo Done.
+            )
+        )
+    )
+    if "!valid!"=="0" echo Invalid selection.
+)
+
 echo.
 pause

@@ -42,9 +42,21 @@ kwsDeveloper의 모든 프로젝트에서 공통으로 참고하는 가이드·�
 |------|-------|------|
 | 1 | kws-project 먼저 clone | `git clone https://github.com/kwsDeveloper/kws-project.git` |
 | 2-1 | 나머지 전체 자동 clone | kws-project 폴더 안의 **전체클론.bat 더블클릭** |
-| 2-2 | 원하는 프로젝트만 clone | `git clone https://github.com/kwsDeveloper/프로젝트명.git` |
+| 2-2 | 원하는 프로젝트만 clone | 전체클론.bat에서 번호 선택 또는 `git clone https://github.com/kwsDeveloper/프로젝트명.git` |
 
-> 전체클론.bat는 이미 존재하는 폴더는 건너뛰므로 여러 번 실행해도 됩니다.
+**전체클론.bat 실행 화면 예시:**
+```
+  1. kws-project   [exists]
+  2. kws-portal    [new]
+  3. kws-overtime  [new]
+
+  all  = clone all [new]
+  num  = clone selected item
+Choice: 2
+```
+- `all` 입력 → [new] 표시된 프로젝트 전체 clone
+- 번호 입력 → 해당 프로젝트만 clone
+- [exists]는 이미 있는 폴더로 선택해도 건너뜀 (여러 번 실행 안전)
 
 #### 새 프로젝트가 추가됐을 때
 
