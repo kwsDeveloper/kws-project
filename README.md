@@ -38,10 +38,11 @@ kwsDeveloper의 모든 프로젝트에서 공통으로 참고하는 가이드·�
 
 #### 신규 PC에서 처음 받을 때
 
-| 순서 | 할 일 | 명령 |
+| 순서 | 할 일 | 방법 |
 |------|-------|------|
 | 1 | kws-project 먼저 clone | `git clone https://github.com/kwsDeveloper/kws-project.git` |
-| 2 | 나머지 전체 자동 clone | kws-project 폴더 안의 **전체클론.bat 더블클릭** |
+| 2-1 | 나머지 전체 자동 clone | kws-project 폴더 안의 **전체클론.bat 더블클릭** |
+| 2-2 | 원하는 프로젝트만 clone | `git clone https://github.com/kwsDeveloper/프로젝트명.git` |
 
 > 전체클론.bat는 이미 존재하는 폴더는 건너뛰므로 여러 번 실행해도 됩니다.
 
