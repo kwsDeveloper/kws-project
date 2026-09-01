@@ -47,6 +47,9 @@ git clone https://github.com/kwsDeveloper/kws-project.git
 git clone https://github.com/kwsDeveloper/kws-portal.git
 ```
 
+> 전체를 한 번에 받으려면 `kws-project` 폴더 안의 **전체클론.bat를 더블클릭**하세요.  
+> 이미 존재하는 폴더는 건너뛰고 새 프로젝트만 자동으로 clone합니다.  
+
 > 이후 새 프로젝트가 추가될 때마다 해당 저장소 주소로 동일하게 실행합니다.  
 > 예) `kws-overtime` 프로젝트가 추가되면:
 > ```bash
