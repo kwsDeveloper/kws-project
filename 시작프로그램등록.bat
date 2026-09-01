@@ -1,21 +1,12 @@
 @echo off
-chcp 65001 > nul
-
-set STARTUP=%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup
 set TARGET=%~dp0auto_update.vbs
-set SHORTCUT=%STARTUP%\KWS_auto_update.lnk
-
-powershell -Command "$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut('%SHORTCUT%'); $s.TargetPath = '%TARGET%'; $s.WorkingDirectory = '%~dp0'; $s.Save()"
-
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "KWS_AutoUpdate" /t REG_SZ /d "%TARGET%" /f
 echo.
 echo ============================
-echo   시작프로그램 등록 완료!
+echo   등록 완료
 echo ============================
 echo.
-echo PC를 켤 때마다 백그라운드에서 자동으로 업데이트됩니다.
-echo (창이 뜨지 않습니다)
-echo.
-echo 해제하려면 아래 폴더에서 KWS_auto_update.lnk 파일을 삭제하세요:
-echo %STARTUP%
+echo PC 시작 시 자동으로 업데이트됩니다.
+echo 해제하려면 시작프로그램해제.bat 를 실행하세요.
 echo.
 pause

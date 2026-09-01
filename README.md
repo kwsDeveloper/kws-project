@@ -72,7 +72,7 @@ kwsDeveloper의 모든 프로젝트에서 공통으로 참고하는 가이드·�
 
 → 이후 PC를 켤 때마다 백그라운드에서 자동으로 최신 내용 수신 (창 뜨지 않음)
 
-> 해제하려면 `C:\Users\사용자명\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup` 폴더에서 `KWS_자동업데이트.lnk` 삭제
+> 해제하려면 `kws-project` 폴더 안의 **시작프로그램해제.bat 더블클릭**
 
 **수동 — 필요할 때 직접 실행**
 
