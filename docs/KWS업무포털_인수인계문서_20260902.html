@@ -1,0 +1,481 @@
+<title>KWS 업무 포털 인수인계</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap">
+<style>
+  :root {
+    --bg: #f8f7f4;
+    --surface: #ffffff;
+    --border: #e4e7ec;
+    --text: #1c2333;
+    --text-sub: #5a6478;
+    --accent: #1d4ed8;
+    --accent-light: #eff4ff;
+    --accent-bar: #1d4ed8;
+    --tag-exists: #dcfce7;
+    --tag-exists-text: #166534;
+    --tag-warn: #fef9c3;
+    --tag-warn-text: #854d0e;
+    --tag-info: #dbeafe;
+    --tag-info-text: #1e40af;
+    --shadow: 0 1px 3px rgba(0,0,0,.07), 0 1px 2px rgba(0,0,0,.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --border: #334155;
+      --text: #f1f5f9;
+      --text-sub: #94a3b8;
+      --accent: #60a5fa;
+      --accent-light: #1e3a5f;
+      --accent-bar: #3b82f6;
+      --tag-exists: #14532d;
+      --tag-exists-text: #86efac;
+      --tag-warn: #422006;
+      --tag-warn-text: #fde68a;
+      --tag-info: #1e3a5f;
+      --tag-info-text: #93c5fd;
+      --shadow: 0 1px 3px rgba(0,0,0,.3);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f172a;
+    --surface: #1e293b;
+    --border: #334155;
+    --text: #f1f5f9;
+    --text-sub: #94a3b8;
+    --accent: #60a5fa;
+    --accent-light: #1e3a5f;
+    --accent-bar: #3b82f6;
+    --tag-exists: #14532d;
+    --tag-exists-text: #86efac;
+    --tag-warn: #422006;
+    --tag-warn-text: #fde68a;
+    --tag-info: #1e3a5f;
+    --tag-info-text: #93c5fd;
+    --shadow: 0 1px 3px rgba(0,0,0,.3);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.7;
+    padding: 40px 16px 80px;
+  }
+
+  .doc {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  /* Header */
+  .doc-header {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--accent-bar);
+    border-radius: 8px;
+    padding: 32px 36px 28px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+  }
+  .doc-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .doc-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px 24px;
+  }
+  .meta-item { display: flex; flex-direction: column; gap: 2px; }
+  .meta-key { font-size: 11px; color: var(--text-sub); font-weight: 500; }
+  .meta-val { font-size: 13px; font-weight: 500; color: var(--text); }
+
+  /* Section */
+  .section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .section-bar {
+    width: 3px;
+    height: 18px;
+    background: var(--accent-bar);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .section-body {
+    padding: 20px 24px;
+  }
+
+  /* Table */
+  .tbl { width: 100%; border-collapse: collapse; }
+  .tbl th {
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-sub);
+    letter-spacing: .04em;
+    padding: 8px 12px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+  .tbl td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    vertical-align: top;
+  }
+  .tbl tr:last-child td { border-bottom: none; }
+  .tbl tr:hover td { background: var(--accent-light); }
+
+  /* Code / path */
+  code {
+    font-family: 'Menlo', 'Consolas', monospace;
+    font-size: 12px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1px 6px;
+    color: var(--accent);
+  }
+
+  /* Tag */
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 4px;
+    padding: 1px 8px;
+  }
+  .tag-green { background: var(--tag-exists); color: var(--tag-exists-text); }
+  .tag-yellow { background: var(--tag-warn); color: var(--tag-warn-text); }
+  .tag-blue { background: var(--tag-info); color: var(--tag-info-text); }
+
+  /* Step list */
+  .steps { display: flex; flex-direction: column; gap: 10px; }
+  .step {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .step-num {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .step-text { font-size: 13px; }
+
+  /* Note */
+  .note {
+    background: var(--accent-light);
+    border-left: 3px solid var(--accent-bar);
+    border-radius: 0 6px 6px 0;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--text);
+    margin-top: 14px;
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .gap { margin-top: 14px; }
+</style>
+
+<div class="doc">
+
+  <div class="doc-header">
+    <div class="doc-label">인수인계 문서</div>
+    <div class="doc-title">KWS 업무 포털</div>
+    <div class="meta-grid">
+      <div class="meta-item">
+        <span class="meta-key">작성일</span>
+        <span class="meta-val">2026-09-02</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">작성</span>
+        <span class="meta-val">kwsDeveloper (Claude Code)</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">서비스</span>
+        <span class="meta-val">대한사회복지회 사내 링크 포털</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">상태</span>
+        <span class="meta-val"><span class="tag tag-green">운영 중</span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 서비스 개요 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-bar"></div>
+      <div class="section-title">서비스 개요</div>
+    </div>
+    <div class="section-body">
+      <table class="tbl">
+        <tr>
+          <th style="width:140px">항목</th>
+          <th>내용</th>
+        </tr>
+        <tr>
+          <td>서비스명</td>
+          <td>KWS 업무 포털</td>
+        </tr>
+        <tr>
+          <td>용도</td>
+          <td>사내 업무 관련 링크를 카테고리별로 모아 제공하는 내부 포털</td>
+        </tr>
+        <tr>
+          <td>포털 주소</td>
+          <td><a href="https://kwsdeveloper.github.io/kws-project" target="_blank">https://kwsdeveloper.github.io/kws-project</a></td>
+        </tr>
+        <tr>
+          <td>GitHub 저장소</td>
+          <td><a href="https://github.com/kwsDeveloper/kws-project" target="_blank">https://github.com/kwsDeveloper/kws-project</a></td>
+        </tr>
+        <tr>
+          <td>로컬 경로 (PC1)</td>
+          <td><code>C:\ClaudeProjects\kws-portal\</code></td>
+        </tr>
+        <tr>
+          <td>주요 파일</td>
+          <td><code>index.html</code> — 단일 HTML SPA (전체 기능 포함)</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- 기술 구성 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-bar"></div>
+      <div class="section-title">기술 구성</div>
+    </div>
+    <div class="section-body">
+      <table class="tbl">
+        <tr>
+          <th style="width:140px">구성 요소</th>
+          <th>내용</th>
+        </tr>
+        <tr>
+          <td>호스팅</td>
+          <td>GitHub Pages — <code>master</code> 브랜치 자동 배포 (push 시 즉시 반영)</td>
+        </tr>
+        <tr>
+          <td>데이터베이스</td>
+          <td>Supabase PostgreSQL — 링크·설정 영구 저장</td>
+        </tr>
+        <tr>
+          <td>API</td>
+          <td>Supabase Edge Function <code>portal-api</code> — 읽기·쓰기 처리</td>
+        </tr>
+        <tr>
+          <td>Supabase 프로젝트</td>
+          <td>Project Ref: <code>czrdvknzbkmryvnjyiki</code></td>
+        </tr>
+        <tr>
+          <td>DB 주요 테이블</td>
+          <td><code>links</code> — 링크 목록 &nbsp;/&nbsp; <code>config</code> — 관리자 비밀번호 등 설정값</td>
+        </tr>
+        <tr>
+          <td>보안</td>
+          <td>Service Role 키는 Edge Function에만 보관 — <code>index.html</code>에 미포함</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- 주요 기능 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-bar"></div>
+      <div class="section-title">주요 기능</div>
+    </div>
+    <div class="section-body">
+      <table class="tbl">
+        <tr>
+          <th style="width:140px">기능</th>
+          <th>설명</th>
+        </tr>
+        <tr>
+          <td>링크 표시</td>
+          <td>카테고리별로 그룹화된 업무 링크 목록 표시</td>
+        </tr>
+        <tr>
+          <td>관리자 로그인</td>
+          <td>비밀번호 입력 후 관리 모드 진입</td>
+        </tr>
+        <tr>
+          <td>링크 관리</td>
+          <td>링크 추가·수정·삭제·비활성 전환 (관리자 전용)</td>
+        </tr>
+        <tr>
+          <td>카테고리 관리</td>
+          <td>카테고리명 추가·변경·삭제 (관리자 전용)</td>
+        </tr>
+        <tr>
+          <td>데이터 영구 저장</td>
+          <td>Supabase DB 저장 — 브라우저 캐시와 무관하게 유지</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- 관리 방법 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-bar"></div>
+      <div class="section-title">일상 관리 방법</div>
+    </div>
+    <div class="section-body">
+      <p style="font-size:13px; font-weight:600; margin-bottom:10px;">방법 1 — Claude Code 채팅 요청 (권장)</p>
+      <table class="tbl">
+        <tr>
+          <th>요청 예시</th>
+        </tr>
+        <tr><td>"복지넷 링크 추가해주세요. URL은 www.bokjinet.or.kr"</td></tr>
+        <tr><td>"복지넷 링크 삭제해주세요"</td></tr>
+        <tr><td>"복지넷 링크를 비활성으로 변경해주세요"</td></tr>
+        <tr><td>"카테고리명 '복지' → '사회복지'로 변경해주세요"</td></tr>
+      </table>
+
+      <div class="gap"></div>
+      <p style="font-size:13px; font-weight:600; margin-bottom:10px;">방법 2 — 포털 관리자 직접 수정</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-text">포털 접속 후 우측 상단 관리자 로그인 버튼 클릭</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-text">비밀번호 입력 → 관리 모드 진입</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-text">링크·카테고리 추가·수정·삭제</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 배포 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-bar"></div>
+      <div class="section-title">코드 수정 및 배포</div>
+    </div>
+    <div class="section-body">
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-text">Claude Code에서 <code>C:\ClaudeProjects\kws-portal\</code> 폴더 열기</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-text">채팅으로 수정 요청 → <code>index.html</code> 자동 수정</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-text"><code>git push</code> 완료 → GitHub Pages 자동 배포 (수 분 내 반영)</div>
+        </div>
+      </div>
+      <div class="note">
+        GitHub Pages 배포 브랜치: <code>master</code> (Settings → Pages에서 확인 가능)
+      </div>
+    </div>
+  </div>
+
+  <!-- 비밀번호 분실 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-bar"></div>
+      <div class="section-title">관리자 비밀번호 분실 시</div>
+    </div>
+    <div class="section-body">
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-text">Supabase 대시보드 접속: <a href="https://supabase.com/dashboard/project/czrdvknzbkmryvnjyiki" target="_blank">supabase.com/dashboard/project/czrdvknzbkmryvnjyiki</a></div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-text">좌측 메뉴 Table Editor → <code>config</code> 테이블 선택</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-text"><code>adminPw</code> 행의 value 값을 새 비밀번호로 직접 수정</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 문의 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-bar"></div>
+      <div class="section-title">문의 및 참고</div>
+    </div>
+    <div class="section-body">
+      <table class="tbl">
+        <tr>
+          <th style="width:140px">항목</th>
+          <th>링크</th>
+        </tr>
+        <tr>
+          <td>GitHub</td>
+          <td><a href="https://github.com/kwsDeveloper" target="_blank">github.com/kwsDeveloper</a></td>
+        </tr>
+        <tr>
+          <td>Supabase</td>
+          <td><a href="https://supabase.com/dashboard/project/czrdvknzbkmryvnjyiki" target="_blank">supabase.com/dashboard/project/czrdvknzbkmryvnjyiki</a></td>
+        </tr>
+        <tr>
+          <td>공통 가이드</td>
+          <td><a href="https://github.com/kwsDeveloper/kws-project" target="_blank">github.com/kwsDeveloper/kws-project (README)</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</div>
