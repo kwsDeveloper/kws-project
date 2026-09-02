@@ -50,13 +50,21 @@ kwsDeveloper의 모든 프로젝트에서 공통으로 참고하는 가이드·�
   2. kws-portal    [new]
   3. kws-overtime  [new]
 
-  all  = clone all [new]
-  num  = clone selected item
-Choice: 2
+  all   = clone all [new]
+  1 2 3 = clone selected
+  q     = quit
+Choice: 2 3
 ```
-- `all` 입력 → [new] 표시된 프로젝트 전체 clone
-- 번호 입력 → 해당 프로젝트만 clone
-- [exists]는 이미 있는 폴더로 선택해도 건너뜀 (여러 번 실행 안전)
+| 입력 | 동작 |
+|------|------|
+| `all` | [new] 표시된 프로젝트 전체 clone |
+| `2` | 2번만 clone |
+| `2 3` | 2번, 3번 동시 clone |
+| `q` | 종료 |
+
+- clone 완료 후 아무 키 누르면 목록으로 돌아와 계속 선택 가능
+- [exists]는 선택해도 건너뜀 (여러 번 실행 안전)
+- 창 닫기 버튼으로도 종료 가능
 
 #### 새 프로젝트가 추가됐을 때
 
