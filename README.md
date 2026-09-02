@@ -149,7 +149,8 @@ Claude Code가 프로젝트 폴더를 열면 CLAUDE.md를 자동으로 읽어 �
 | "인수인계 문서 만들어주세요" |
 | "사용 매뉴얼 만들어주세요" |
 
-> 생성된 문서는 프로젝트 폴더에 HTML로 저장되며 자동으로 GitHub에 push됩니다.  
+> 생성된 문서는 **`kws-project/docs/`** 폴더에 HTML로 저장되며 자동으로 GitHub에 push됩니다.  
+> 모든 프로젝트 문서가 이 폴더에 통합 저장되므로, 문서 확인 시 `kws-project/docs/`만 열면 됩니다.  
 > PDF가 필요하면 탐색기에서 HTML 파일 더블클릭 → `Ctrl+P` → PDF로 저장
 
 ### 설정 변경
