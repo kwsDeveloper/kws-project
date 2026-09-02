@@ -72,6 +72,14 @@ Choice: 2 3
    - "새 프로젝트 만들어주세요. 이름은 **kws-overtime** 입니다." → GitHub 저장소 생성 + push 자동 완료
    - 이름 없이 "새 프로젝트 만들어주세요."라고 하면 Claude가 이름을 되물어봄
 
+   **Claude 없이 직접 하려면 — `github-push.ps1` 사용:**
+   ```powershell
+   # PowerShell에서 실행 (gh auth login 완료된 상태에서)
+   C:\ClaudeProjects\kws-project\github-push.ps1 -ProjectName "kws-overtime"
+   ```
+   > 폴더 생성 → git init → 첫 커밋 → GitHub 저장소 생성 + push 를 한 번에 처리합니다.  
+   > ⚠️ 실행 전에 `.gitignore`를 먼저 만들어두세요. 없으면 민감 파일까지 올라갈 수 있습니다.
+
 2. **나머지 PC**: 전체클론.bat 더블클릭 또는 개별 clone
    ```bash
    git clone https://github.com/kwsDeveloper/kws-overtime.git
